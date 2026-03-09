@@ -5,3 +5,4 @@ scipy
 pyarrow
 joblib
 streamlit
+magedspaceship
