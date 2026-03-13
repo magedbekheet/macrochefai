@@ -1,0 +1,26 @@
+services:
+  macrochefai-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data/processed_data:/app/data/processed_data:ro
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  streamlit:
+    build: .
+    command: streamlit run app/app_v3.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    environment:
+      - MACROCHEF_API_URL=http://macrochefai-api:8000
+    depends_on:
+      macrochefai-api:
+        condition: service_healthy
