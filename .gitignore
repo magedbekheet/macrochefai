@@ -1,8 +1,7 @@
 # Data (large files — stored in GCS)
 raw_data/
 processed_data/
-models/
-
+**/models/
 # Python
 __pycache__/
 *.pyc
