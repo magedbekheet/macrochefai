@@ -1,10 +1,24 @@
-############
-pandas
-numpy
-scipy
-pyarrow
-joblib
-streamlit
+# Core data
+pandas==2.3.3
+numpy==2.4.3
+scipy==1.17.1
+pyarrow==23.0.1
+
+# ML
 scikit-learn==1.6.1
-matplotlib
-seaborn
+joblib==1.5.3
+
+# App
+streamlit==1.55.0
+
+# API
+fastapi==0.135.1
+uvicorn[standard]==0.42.0
+pydantic==2.12.5
+google-cloud-storage==2.19.0
+
+# Notebook / visualization
+matplotlib==3.10.8
+seaborn==0.13.2
+jupyter==1.1.1
+ipykernel==7.2.0
